@@ -1,25 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ExpenseTracker from './component/ExpenseTracker';
+import ShowDataList from './component/ShowDataList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/add" element={<ExpenseTracker onClose={true} onTrue={false}></ExpenseTracker>}></Route>
+            <Route path="/" element={<ShowDataList></ShowDataList>}></Route>
+          </Routes>
+        </BrowserRouter>
+      </div>
   );
 }
 
